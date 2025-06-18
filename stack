@@ -73,3 +73,27 @@ function nextGreatest(arr){
 }
 
 nextGreatest([5,9,3,1,12,6,8,7])
+
+const arr = [100, 80, 60, 70, 60, 75, 85]
+
+# stockSpan
+function stockSpan(a){
+    let stack = [] , ans = [];
+    
+    for(let i = 0 ;  i <  a.length ; i++){
+        const val = a[i]
+        
+        while(stack.length && stack[stack.length -1].value < val){
+            stack.pop()
+        }
+        const sol = stack.length ? i - stack[stack.length -1].index   : i + 1
+        ans.push(sol)
+        stack.push({value : val , index : i})
+    }
+    
+    return ans
+}
+
+
+console.log(stockSpan(arr)
+)
