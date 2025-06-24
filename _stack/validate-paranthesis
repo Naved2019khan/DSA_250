@@ -1,0 +1,23 @@
+## Valid paranthesis 
+function validP(str){
+    const obj = {
+          "(" : ")" ,
+          "{" : "}" ,
+          "[" : "]" ,
+    }
+    let stack = []
+    for(let i = 0 ; i < str.length ; i ++ ){
+        const val = str[i] 
+        if(val == "}" || val == ")" || val == "]"){
+           if(val != obj[stack[stack.length -1]] ){
+               return false
+           } 
+           stack.pop()
+        }
+        else{
+            stack.push(val)
+        }
+    }
+    
+    return !stack.length
+}
