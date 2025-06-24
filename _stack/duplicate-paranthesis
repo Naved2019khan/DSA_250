@@ -1,0 +1,27 @@
+### Stack 
+
+# Duplicate Barcket 
+function duplicateBracket(str) {
+  let st = []
+  for (let i = 0; i < str.length; i++) {
+    const item = str[i];
+    if (item == ")") {
+      if (st[st.length - 1] == "(") {
+        return true
+      }
+      else {
+        while (!st.length || st[st.length - 1] != "(") {
+          st.pop()
+        }
+          st.pop()
+          
+      }
+    }
+    else {
+      st.push(item)
+    }
+   
+  }
+  return false
+}
+console.log("OUTPUT" , duplicateBracket("(a+b)+((a+b)"))
